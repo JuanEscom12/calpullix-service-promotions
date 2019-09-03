@@ -1,0 +1,10 @@
+spring:
+  application: 
+    name: calpullix-service-promotions
+  config:
+    name: '${spring.application.name}'
+  cloud:
+    config:
+      url: http://localhost:8888
+  profiles:
+    active: composite

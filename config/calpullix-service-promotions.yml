@@ -1,0 +1,65 @@
+spring:
+  mvc: 
+    throw-exception-if-no-handler-found: true
+  jackson:
+    deserialization: 
+      fail-on-missing-creator-properties: 'false'
+      
+hystrix:
+  threadpool:
+    default:
+      coreSize: 35
+      maximumSize: 35
+  command: 
+    invoke: 
+      circuitBreaker:
+        requestVolumeThreshold: 35
+        sleepWindowInMilliseconds: 1000
+      metrics:
+        rollingStatus:
+          timeInMilliseconds: 60000
+      execution: 
+        isolation: 
+          thread:
+            timeoutInMilliseconds: 10000
+          semaphore: 
+            maxConcurrentRequest: 500
+            
+logging:
+  level:
+    org:
+      springframework.web: INFO
+      springframework.web.servlet.DispatcherServlet: DEBUG
+      springframework.cloud.sleuth: DEBUG
+    com.calpullix.service.login: DEBUG
+  pattern:
+    level: '[%X{data}%thread][%X{X-B3-TraceId:-}]-%5p'
+    
+    
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+  helath:
+    defaults:
+      enabled: true
+    jms:
+      enabled: false 
+
+eureka:
+  client:
+    registryFetchIntervalSeconds: 10
+    serviceUrl: 
+      defaultZone: http://localhost:8761/eureka   
+  
+app:
+  message-error-location-body: Body
+  path-promotions: /calpullix/promotions
+  path-client-promotions: /calpullix/client/promotions
+  
+  
+      
+      
+  
+     
+ 
