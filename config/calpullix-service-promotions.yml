@@ -4,7 +4,21 @@ spring:
   jackson:
     deserialization: 
       fail-on-missing-creator-properties: 'false'
-      
+  datasource:
+    url: jdbc:mysql://localhost:3306/CALPULLIX_VIRTUAL_MANAGER_ASSISTANT?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: adminadmin
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true    
+  boot:
+    admin:
+      client:
+        url: http://localhost:9550
+
+    
 hystrix:
   threadpool:
     default:
@@ -40,7 +54,9 @@ management:
   endpoints:
     web:
       base-path: /actuator
-  helath:
+      exposure:
+        include: '*'
+  health:
     defaults:
       enabled: true
     jms:
@@ -56,10 +72,15 @@ app:
   message-error-location-body: Body
   path-promotions: /calpullix/promotions
   path-client-promotions: /calpullix/client/promotions
-  
-  
-      
-      
+  path-analysis-products-clients: /calpullix/analysis/products-clients/retrieve
+  path-promotions-profile-detail: /calpullix/promotions/profile/detail/retrieve 
+  path-image-promotions: /calpullix/promotions/image/retrieve
+  path-detail-prmotion: /calpullix/detail/promotion/retrieve
+  path-update-promotions-profile: /calpullix/promotions/profile/update 
+  path-test-resize: /calpullix/test/resize
+  pagination-size: 5
+  max-pool-size: 10
+  scheduling-expression: 0 01 14 * * ?
   
      
  

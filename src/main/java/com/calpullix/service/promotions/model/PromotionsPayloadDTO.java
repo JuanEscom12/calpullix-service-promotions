@@ -6,13 +6,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PromotionsResponse {
+@ToString
+public class PromotionsPayloadDTO {
 	
-	private List<PromotionsDetailDTO> promotions;
+	private List<DetailPromotionsUpdateDTO> detail;
 
 }

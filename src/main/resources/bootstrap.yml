@@ -5,6 +5,11 @@ spring:
     name: '${spring.application.name}'
   cloud:
     config:
-      url: http://localhost:8888
+      uri: http://localhost:8799
+      username: root
+      password: s3cr3t
   profiles:
-    active: composite
+    active: default
+    
+server:
+  port: 9101

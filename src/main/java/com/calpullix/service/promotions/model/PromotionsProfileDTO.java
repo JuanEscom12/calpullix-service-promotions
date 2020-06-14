@@ -1,6 +1,6 @@
 package com.calpullix.service.promotions.model;
 
-import java.util.List;
+import java.math.BigDecimal;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,14 +13,16 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class ClientPromotionsResponse {
+public class PromotionsProfileDTO {
 
-	private Integer idProducto;
+	private Integer promotionId;
 	
-	private String productName;
+	private Integer idProfile;
 	
-	private String urlProductImage;
-
-	private List<CustomerDetail> customers;
+	private Integer numberCustomers;
+	
+	private BigDecimal earnings;
+	
+	private String promotionDeadline;
 	
 }
